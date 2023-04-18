@@ -27,7 +27,7 @@ def a_star(inicio, meta, grafo):
             visitados.add(nodo_siguiente)
             cola.append(nodo_siguiente)
             nodo_padre[nodo_siguiente] = actual
-        elif nodo_siguiente in visitados:
+        else:
             cola.append(nodo_siguiente)
         #CONTINUARA! 
         """
