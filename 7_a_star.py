@@ -11,15 +11,15 @@ def a_star(inicio, meta, grafo):
     visitados_costo_t[inicio] = 0 + grafo(inicio, "Heuristic")
 
     while cola:
-        print(cola)
+        """print(cola)
         print(visitados)
         print(mejor_costo)
-        print(visitados_costo_t)
+        print(visitados_costo_t)"""
         
         actual = cola.popleft()
 
         if actual == meta:
-            return visitados # Funcion para solucion
+            return solucion_constructor(inicio, meta, nodo_padre) # Funcion para solucion
 
         nodo_siguiente = None
         for arista in grafo(actual):
@@ -44,8 +44,14 @@ def a_star(inicio, meta, grafo):
 
     return "Finalizado"
 
-def solucion_constructor():
-    return None
+def solucion_constructor(inicio, meta, nodos_padre):
+    camino = [meta]
+    nodo = meta
+    while nodo != inicio:
+        nodo = nodos_padre[nodo]
+        camino.append(nodo)
+    camino.reverse()
+    return camino
 
 def data(nodo, instruccion = None):
     """
