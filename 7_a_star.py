@@ -7,10 +7,17 @@ def a_star(inicio, meta, grafo):
     cola.append(inicio) # Tupla con el nodo y su costo acumulado
     visitados.add(inicio)
     mejor_costo = float("inf")
+    visitados_costo_t = {} # Diccionario para almacenar el costo acumulado total D + H
+    visitados_costo_t[inicio] = 0 + grafo(inicio, "Heuristic")
 
     while cola:
+        print(cola)
+        print(visitados)
+        print(mejor_costo)
+        print(visitados_costo_t)
         
         actual = cola.popleft()
+
         if actual == meta:
             return visitados # Funcion para solucion
 
@@ -18,33 +25,29 @@ def a_star(inicio, meta, grafo):
         for arista in grafo(actual):
             costo_distancia_heuristico = arista[1] + grafo(arista[0], "Heuristic")
             
-            if costo_distancia_heuristico < mejor_costo: #Se busca el mejor costo total
+            if costo_distancia_heuristico < mejor_costo and arista[0] not in visitados: #Se busca el mejor costo total
                 mejor_costo = costo_distancia_heuristico
                 nodo_siguiente = arista[0] #se encontro el siguiente nodo
                 #despues expandimos con su costo o si ya se visito expandimos por su bajo costo
             
+        if nodo_siguiente == None:
+            #Si no se encuentra un mejor nodo entonces retrocedemos al padre y eliminamos la arista del grafo
+            nodo_siguiente = nodo_padre[actual]
+            mejor_costo = visitados_costo_t[nodo_siguiente]  
         if nodo_siguiente not in visitados:
             visitados.add(nodo_siguiente)
             cola.append(nodo_siguiente)
             nodo_padre[nodo_siguiente] = actual
-        else:
+            visitados_costo_t[nodo_siguiente] = mejor_costo
+        elif nodo_siguiente in visitados: 
             cola.append(nodo_siguiente)
-        #CONTINUARA! 
-        """
-        Si ya esta en visitados, y el mejor_costo es mayor que el mejor_costo_anterior, 
-        entonces
-        hay que hacer actual(mejor_costo_anterior) y expandir
-        """
-        print(cola)
-        print(visitados)
-        print(mejor_costo)
-    
-    return None
+
+    return "Finalizado"
 
 def solucion_constructor():
     return None
 
-def data(nodo, heuristic = None):
+def data(nodo, instruccion = None):
     """
     Contemos un grafo con costo y una tabla con la heuristica:
     """
@@ -67,10 +70,22 @@ def data(nodo, heuristic = None):
             'G': 7,
             'H': 0}
     
-    if heuristic:
+    if instruccion == "Heuristic": #Retornar valor heuristico
         return heuristica[nodo]
+    elif instruccion == "Del": #Eliminar 
+        del grafo[nodo]
+        del heuristica[nodo]
+        for nodo, aristas in grafo.items():
+            for arista in aristas:
+                if arista[0] == nodo:
+                    aristas.remove(arista)
+        for nodo, aristas in grafo.items():
+            print(nodo)
+            print(aristas)
+                    
+            
 
-    return grafo[nodo]
+    return grafo[nodo] #Retornar solo el nodo
 
 inicio = 'A'
 meta = 'H'
