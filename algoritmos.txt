@@ -1,14 +1,11 @@
     Bfs: Búsqueda en anchura (Breadth-first search).
     Uniforme: Búsqueda de costo uniforme (Uniform-cost search).
-    Dfs: Búsqueda en profundidad (Depth-first search).
-    DIF: Búsqueda primero lo mejor (Best-first search).
-    Bref: Búsqueda por referencia (Reference-based search).
+    Dfs: Búsqueda en profundidad iterativo (Depth-first search).
     Dfs limitado: Búsqueda en profundidad limitada (Limited-depth search).
     A star: Búsqueda A* (A-star search).
+    Local beam search: Búsqueda local con haz (Local beam search).
     Ids: Búsqueda por profundidad iterativa (Iterative deepening search).
-    Dfs iteratico: Búsqueda en profundidad iterativa (Iterative deepening search).
-    Costo uniforme: Búsqueda de costo uniforme (Uniform-cost search).
     Avaro: Búsqueda voraz (Greedy search).
     MINIMAX: Algoritmo Minimax para juegos.
     MINIMAX poda: Algoritmo Minimax con poda alfa-beta (Alpha-beta pruning).
-    Local beam search: Búsqueda local con haz (Local beam search).
+
