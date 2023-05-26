@@ -8,4 +8,3 @@
     Avaro: Búsqueda voraz (Greedy search).
     MINIMAX: Algoritmo Minimax para juegos.
     MINIMAX poda: Algoritmo Minimax con poda alfa-beta (Alpha-beta pruning).
-
