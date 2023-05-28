@@ -42,7 +42,7 @@ def data(nodo):
 
 inicio = 'A'
 meta = 'F'
-profundidad = 9
+profundidad = 1
 resultado = dfsl(inicio, meta, data, profundidad)
 print("Este algoritmo es el DFS iterativo, por lo que el orden es inverso comenzando por los nodos de la derecha en su busqueda")
 print(resultado)

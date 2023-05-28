@@ -8,7 +8,9 @@ def bfs(inicio, meta, grafo):
     visitados.add(inicio)
     
     while cola: #La cola siempre contendra un nodo asi que estara siempre en el ciclo hasta encontrar la meta
+        
         actual = cola.popleft() #Se toma y elimina el primer elemento.
+        print(actual)
         if actual == meta:  #En caso de que se llege a la meta se crea el arreglo del recorrido
             return nodos_solucion(nodo_padre, inicio, meta)
         for arista in grafo(actual): #Se hace la busqueda de los aristas hasta estar en 

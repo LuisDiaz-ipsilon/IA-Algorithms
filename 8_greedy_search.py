@@ -12,6 +12,7 @@ def greedy_search(inicio, meta, grafo):
 
     while cola:
         actual = cola.popleft()
+        print(actual)
         
 
         if actual == meta:

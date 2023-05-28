@@ -13,6 +13,7 @@ def beam_search(inicio, meta, grafo, beam_width):
 
         while cola:
             actual, costo_acumulado = cola.pop(0)
+            print(actual)
 
             if actual == meta:
                 return solucion_constructor(inicio, meta, nodo_padre)  # Funcion para obtener la solucion
@@ -82,6 +83,6 @@ def data(nodo, instruccion = None):
 
 inicio = 'A'
 meta = 'H'
-beam_width = 1 #Número de mejores nodos que se mantendrán en cada paso
+beam_width = 2 #Número de mejores nodos que se mantendrán en cada paso
 resultado = beam_search(inicio, meta, data, beam_width)
 print(resultado)

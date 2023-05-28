@@ -1,17 +1,17 @@
 from collections import deque
 
 def minimax_alphabeta(arr):
-    # Caso base: si el arreglo está vacío, no hay más jugadas posibles
+    #  Si el arreglo está vacío, no hay más jugadas posibles
     if len(arr) == 0:
         return 0
 
     # Obtener la cantidad de elementos en el arreglo
     n = len(arr)
 
-    # Verificar si es el turno del jugador máximo o mínimo
+    # Se crea variable estado para determinar si sige min o max
     state = (n % 2) == 0
 
-    # Caso base: si solo queda un elemento, devolverlo
+    # Si solo hay un elemento en el arreglo esa seria la respuesta
     if n == 1:
         return arr[0]
 
@@ -42,6 +42,6 @@ def minimax_alphabeta(arr):
 
 
 
-arr = [-3, 7, 2, -1, -7, -3, 8, 4]
+arr = [4,48,15,25,36,23,19,-5,-25,11,-46,7,45,-9,48,10]
 resultado = minimax_alphabeta(arr)
 print(resultado)

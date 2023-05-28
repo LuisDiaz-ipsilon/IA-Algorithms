@@ -17,6 +17,7 @@ def a_star(inicio, meta, grafo):
         print(visitados_costo_t)"""
         
         actual = cola.popleft()
+        print(actual)
 
         if actual == meta:
             return solucion_constructor(inicio, meta, nodo_padre) # Funcion para solucion

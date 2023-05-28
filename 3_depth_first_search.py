@@ -15,7 +15,8 @@ def dfs(inicio, meta, data):
         v = s.pop()
         ruta_sol.append(v)
 
-        #En el caso de que si se encuentre v en visitados entonces se continua con pop para s hasta encontrar uno que no este en visitados
+        #En el caso de que si se encuentre v en visitados 
+        # entonces se continua con pop para s hasta encontrar uno que no este en visitados
         if v not in visitados:
             visitados.add(v)
             if v == meta:

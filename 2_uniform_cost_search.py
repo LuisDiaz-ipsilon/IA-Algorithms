@@ -10,6 +10,7 @@ def uniform_cost_search(inicio, meta, grafo):
 
     while cola:
         actual, costo_acumulado = cola.popleft()
+        print(actual)
         if actual == meta:
             # Para dar solucion se lee el padre establecido de la meta, y se continua iterando para cada nodo padre
             camino = [meta]
